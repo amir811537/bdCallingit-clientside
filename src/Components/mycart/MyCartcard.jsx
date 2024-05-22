@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 import "aos/dist/aos.css";
@@ -28,7 +28,7 @@ const MyCartcard = ({ singelproduct }) => {
         //     'success'
         //   )
 
-fetch(`https://electronics-bazar-server.vercel.app/user/${_id}`,{
+fetch(`http://localhost:5000/userCart/${_id}`,{
     method:"DELETE",
 })
 .then(res =>res.json())

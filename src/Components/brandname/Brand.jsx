@@ -5,7 +5,7 @@ const Brand = () => {
 
     const [brands, setBrands] = useState([]); 
     useEffect(() => {
-        fetch('https://electronics-bazar-server-amir811537.vercel.app/brand')
+        fetch('http://localhost:5000/brand')
             .then(res => res.json())
             .then(data => setBrands(data)); 
         
@@ -18,7 +18,7 @@ const Brand = () => {
 
 
         {
-    brands.map(singelbrand  =><Singlebrand key={singelbrand.ID} singelbrand={singelbrand}></Singlebrand>)
+    brands.map(singelbrand  =><Singlebrand key={singelbrand._id} singelbrand={singelbrand}></Singlebrand>)
 }
 
 

@@ -18,11 +18,16 @@ console.log("========>",singelbrand)
       <div>
           <Link to={`/singelbranddata/${brand_name}`} className="block">
 
-      <div className="bg-gray-50 rounded-lg shadow-md flex items-center justify-center p-9">
+      <div className="bg-gray-50 rounded-lg shadow-md  items-center justify-center p-9">
     <div className="flex justify-center items-center gap-5">
-      <img className="w-2/6 rounded-lg" src={brand_image} alt="brand img" />
+      <img className=" rounded-lg" src={brand_image} alt="brand img" />
     </div>
+    <p className=" lg:my-2 lg:text-xl text-center font-bold">
+  {brand_name}
+</p>
+
 </div>
+
 </Link>
 </div>
     );

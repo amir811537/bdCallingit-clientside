@@ -28,7 +28,7 @@ const Singelcard = ({ singlecard,setProducts,products }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://electronics-bazar-server.vercel.app/products/${_id}`, {
+        fetch(`http://localhost:5000/products/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

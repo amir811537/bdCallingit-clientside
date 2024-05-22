@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Singlebrand from "../brandname/Singlebrand";
 import Singelcard from "./Singelcard";
 
 const Singelbranddata = () => {
@@ -10,11 +9,11 @@ const Singelbranddata = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
 
+  console.log("-------------------->", brand);
+
   const getData = async () => {
     try {
-      const response = await axios.get(
-        `https://electronics-bazar-server.vercel.app/products/${brand}`
-      );
+      const response = await axios.get(`http://localhost:5000/products/type/${brand}`);
       setProducts(response.data);
       if (response.data.length === 0) {
         setError("There is no data here.");
@@ -26,8 +25,10 @@ const Singelbranddata = () => {
   };
 
   useEffect(() => {
-    getData();
-  }, []);
+    if (brand) {
+      getData();
+    }
+  }, [brand]);  // Include brand in the dependency array
 
   return (
     <div className="grid mx-6 gap-5 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
@@ -43,7 +44,7 @@ const Singelbranddata = () => {
               products={products}
               setProducts={setProducts}
               singlecard={singlecard}
-            ></Singelcard>
+            />
           ))}
         </>
       )}

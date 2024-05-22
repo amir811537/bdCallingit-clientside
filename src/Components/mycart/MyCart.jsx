@@ -17,7 +17,7 @@ const MyCart = () => {
       
         
         try {
-            const res=await axios.get(`https://electronics-bazar-server.vercel.app/userProduct/${user?.user?.email}`,)
+            const res=await axios.get(`http://localhost:5000/userCart/${user?.user?.email}`,)
            setProduct(res.data)
             
         } catch (error) {

@@ -16,7 +16,7 @@ const AddProduct = () => {
 
     const product = { photourl, name, brandname, type, price, rating };
     axios
-      .post("https://electronics-bazar-server.vercel.app/products", product)
+      .post("http://localhost:5000/products", product)
       .then((res) => {
         console.log("add====>", res.data);
         if(res.data.insertedId){
@@ -28,7 +28,7 @@ const AddProduct = () => {
         }
       })
       .catch((err) => console.log(err));
-// fetch('https://electronics-bazar-server.vercel.app/products',{
+// fetch('http://localhost:5000/products',{
 //   method:"POST",
 //   headers:{
 //     "Content-Type":"application/json",

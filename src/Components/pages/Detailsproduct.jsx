@@ -14,7 +14,7 @@ const Detailsproduct = () => {
   // console.log(singledata);
   const {_id, photourl, name, brandname, type, price, rating } = singledata;
  
-  const [cart,setCarts]=useState([])
+  // const [cart,setCarts]=useState([])
 
   const user1 =useContext(AuthContext);
 
@@ -31,7 +31,7 @@ rating:data1?.rating,
 email:user1?.user?.email
 }
 try {
-  const response=await axios.post('https://electronics-bazar-server.vercel.app/user',payload);
+  const response=await axios.post('http://localhost:5000/userCart',payload);
   console.log(response?.data)
   if(response?.data?.insertedId){
     Swal.fire(

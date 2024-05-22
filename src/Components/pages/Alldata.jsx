@@ -46,7 +46,7 @@ const Alldata = () => {
           <input
             type="text"
             required
-            placeholder="Search UserName..."
+            placeholder="Search Product Name..."
             className="w-full md:w-80 px-3 rounded-l border-2 border-sky-500 focus:outline-none focus:border-sky-500"
             {...register("search")}
           />
@@ -71,7 +71,7 @@ const Alldata = () => {
         </form>
       </div>
 
-      <div className="grid gap-5 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-5 my-10 p-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {products.length > 0 ? (
           products.map((singlecard) => (
             <Singelcard
@@ -86,7 +86,7 @@ const Alldata = () => {
         )}
       </div>
       
-      <div className="flex justify-center items-center gap-3">
+      <div className="flex justify-center my-10 items-center gap-3">
         <button onClick={prevPage} disabled={currentPage === 1}>
           <FaArrowLeft className="text-2xl" />
         </button>
