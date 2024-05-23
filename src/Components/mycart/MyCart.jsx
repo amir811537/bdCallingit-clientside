@@ -1,33 +1,19 @@
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Authprovider/Authprovider";
+/* eslint-disable react-hooks/exhaustive-deps */
+// import { useContext, useEffect, useState } from "react";
+// import { AuthContext } from "../../Authprovider/Authprovider";
 import MyCartcard from "./MyCartcard";
+// import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useCart from "../../Hooks/useCart";
 
 const MyCart = () => {
-    const [product,setProduct]=useState([]);
-    const user=useContext(AuthContext);
-    useEffect(()=>{
-      if(user?.user?.email){
-        getProdcut()
-      }
-    
-    },[user,product])
-
-    const getProdcut=async()=>{
-      
-        
-        try {
-            const res=await axios.get(`http://localhost:5000/userCart/${user?.user?.email}`,)
-           setProduct(res.data)
-            
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    // const axiosPublic =useAxiosPublic()
+    // const [product,setProduct]=useState([]);
+    const [ userCart ,refetch]=useCart()
+ 
     return (
         <div className="grid mx-6 gap-5 my-10 grid-cols-1 md:grid-cols-3 lg:grid-cols-2">
         
-            {product.length>0? product.map(singelproduct  =><MyCartcard key={singelproduct.ID} singelproduct={singelproduct}></MyCartcard>):<h1>Sorry No Data Found!</h1>
+            {userCart.length>0? userCart.map(singelproduct  =><MyCartcard key={singelproduct._id} deletefetch={refetch} singelproduct={singelproduct}></MyCartcard>):<h1>Sorry No Data Found!</h1>
    
 }
 

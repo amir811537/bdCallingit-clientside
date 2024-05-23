@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import "aos/dist/aos.css";
 import AOS from "aos";
 
-const MyCartcard = ({ singelproduct }) => {
+const MyCartcard = ({ singelproduct,deletefetch }) => {
 
   useEffect(() => {
     AOS.init();
@@ -35,6 +35,7 @@ fetch(`http://localhost:5000/userCart/${_id}`,{
 .then(data =>{
     console.log(data);
     if(data.deletedCount > 0){
+      deletefetch()
            Swal.fire(
             'Deleted!',
             'Your added product has been deleted.',

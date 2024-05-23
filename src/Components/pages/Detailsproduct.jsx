@@ -1,17 +1,24 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../Authprovider/Authprovider";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import Modal from "./Modal";
+import useCart from "../../Hooks/useCart";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAllReviews from "../../Hooks/useAllReview";
 
 const Detailsproduct = () => {
   const dataapi = useLoaderData();
+
+  const [refetch,]=useCart()
+
+const axiousPublic=useAxiosPublic()
   // console.log(dataapi)
   const { id } = useParams();
  const {user}=useContext(AuthContext)
 const [filteredReviews, setFilteredReviews] = useState([]);
+const [allReviews, reReviewFetch] = useAllReviews();
 
 
   const singledata = dataapi.find((singledata) => singledata._id === id);
@@ -35,14 +42,18 @@ rating:data1?.rating,
 email:user1?.user?.email
 }
 try {
-  const response=await axios.post('http://localhost:5000/userCart',payload);
-  console.log(response?.data)
+  const response=await axiousPublic.post('/userCart',payload);
+  // console.log(response?.data)
+
   if(response?.data?.insertedId){
+
     Swal.fire(
       'Good job!',
       'added to cart !',
       'success'
     )
+    refetch()
+
     // alert('')
   }
   
@@ -83,14 +94,15 @@ console.log(data)
         userImage: user?.photoURL,
       };
 
-      const res = await axios.post(
-        "http://localhost:5000/allRewiews",
+      const res = await axiousPublic.post(
+        "/allRewiews",
         {
           allReviewData,
         }
       );
 
       if (res.data.insertedId) {
+        reReviewFetch();
         setOpen(false);
         Swal.fire({
           position: "top",
@@ -116,7 +128,15 @@ console.log(data)
     }
   };
 
+  // filter the data using the _id=== reviewID
 
+  useEffect(() => {
+    const filteredData = allReviews.filter(
+      (review) =>
+        review?.reviewData?.reviewID === _id
+    );
+    setFilteredReviews(filteredData);
+  }, [allReviews, _id]);
 
 
  
@@ -130,8 +150,8 @@ console.log(data)
             <img
               src={photourl}
               loading="lazy"
-              alt="Photo by Theo Crazzolara"
-              className="h-full w-full object-cover object-center"
+              alt="Photo "
+              className=" lg:h-[70%] lg:w-[70%] h-full w-full lg:mx-auto object-cover object-center"
             />
           </div>
           {/* <!-- image - end --> */}

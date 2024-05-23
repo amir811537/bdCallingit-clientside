@@ -8,14 +8,14 @@ const {user}=useContext(AuthContext);
 
     const axiosPublic =useAxiosPublic()
 //   transtack queary 
-const {data: userCart=[] }=useQuery({
+const {refetch,data: userCart=[] }=useQuery({
 queryKey: ['userCart',user?.email],
 queryFn: async ()=>{
-    const res = await axiosPublic.get(`/userCart?email=${user?.email}`)
+    const res = await axiosPublic.get(`/userCart/${user?.email}`)
     return res.data;
 }
 })
-return [userCart]
+return [userCart,refetch]
 };
 
 export default useCart;

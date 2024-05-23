@@ -11,6 +11,7 @@ const Alldata = () => {
   const { register, handleSubmit } = useForm();
   const [searchParams, setSearchParams] = useState({ search: "", type: "" });
 
+
   const getData = async (page = 1, searchParams = {}) => {
     try {
       const response = await axios.get(`http://localhost:5000/products`, {
