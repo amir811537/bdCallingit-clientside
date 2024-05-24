@@ -21,7 +21,7 @@ const Updateproduct = () => {
 
     const updatedProduct = { _id, photourl, name, brandname, type, price, rating };
   
-fetch(`http://localhost:5000/products/${_id}`,{
+fetch(`https://electronics-bazar-server.vercel.app/products/${_id}`,{
   method:"PUT",
   headers:{
     "Content-Type":"application/json",

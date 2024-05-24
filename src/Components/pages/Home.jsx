@@ -2,7 +2,7 @@
 import Brand from "../brandname/Brand";
 import Alldata from "./Alldata";
 import Banner from "./Banner";
-import Extrasection from "./Extrasection";
+import ContactUs from "./ContactUs";
 import Newarrival from "./Newarrival";
 import SecondExtra from "./SecoundExtra";
 import Reviews from "./reviews";
@@ -52,7 +52,7 @@ const Home = () => {
             </div>
             
             <div className="py-6">
-                <Extrasection></Extrasection>
+<ContactUs></ContactUs>
             </div>
         </div>
     );

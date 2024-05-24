@@ -14,7 +14,7 @@ const Alldata = () => {
 
   const getData = async (page = 1, searchParams = {}) => {
     try {
-      const response = await axios.get(`http://localhost:5000/products`, {
+      const response = await axios.get(`https://electronics-bazar-server.vercel.app/products`, {
         params: {
           page: page,
           limit: usersPerPage,

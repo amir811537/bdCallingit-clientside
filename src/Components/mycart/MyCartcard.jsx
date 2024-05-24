@@ -28,7 +28,7 @@ const MyCartcard = ({ singelproduct,deletefetch }) => {
         //     'success'
         //   )
 
-fetch(`http://localhost:5000/userCart/${_id}`,{
+fetch(`https://electronics-bazar-server.vercel.app/userCart/${_id}`,{
     method:"DELETE",
 })
 .then(res =>res.json())

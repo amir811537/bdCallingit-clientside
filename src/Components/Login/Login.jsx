@@ -27,7 +27,7 @@ const userImage =result?.user?.photoURL ||"";
       };
 
       axios
-        .post(`http://localhost:5000/profileInfo`, userData)
+        .post(`https://electronics-bazar-server.vercel.app/profileInfo`, userData)
         .then(() => {
           Swal.fire({
             icon: "success",
@@ -79,7 +79,7 @@ const handelLogin = (e) => {
       };
 
       axios
-        .post(`http://localhost:5000/profileInfo`, userData)
+        .post(`https://electronics-bazar-server.vercel.app/profileInfo`, userData)
         .then(() => {
           Swal.fire({
             icon: "success",

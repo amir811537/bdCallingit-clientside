@@ -15,7 +15,7 @@ const Reviews = () => {
   
     const getData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/allRewiews");
+        const response = await axios.get("https://electronics-bazar-server.vercel.app/allRewiews");
         setReviews(response.data);
       } catch (error) {
         console.log("error in data fetching", error);
