@@ -5,6 +5,7 @@ import Banner from "./Banner";
 import Extrasection from "./Extrasection";
 import Newarrival from "./Newarrival";
 import SecondExtra from "./SecoundExtra";
+import Reviews from "./reviews";
 
 const Home = () => {
     //  function ThemBotton(){
@@ -41,9 +42,15 @@ const Home = () => {
 
             <Alldata></Alldata>
             <div>
+
+
+            <div>
+                <Reviews></Reviews>
+            </div>
 <SecondExtra></SecondExtra>
 
             </div>
+            
             <div className="py-6">
                 <Extrasection></Extrasection>
             </div>

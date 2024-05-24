@@ -36,11 +36,11 @@ const [userCart]=useCart()
           Home
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink className=" text-xl text-[#00FFA7]" to="/AddProduct">
           Add product
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink className=" text-xl  hover:text-[#00FFA7]" to="/alldata">
           Products

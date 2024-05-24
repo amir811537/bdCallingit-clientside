@@ -147,7 +147,6 @@ const Detailsproduct = () => {
   // console.log(id,dataapi)
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
-      <div className="mx-auto max-w-screen-lg px-4 md:px-8">
         <div className="grid gap-8 sm:grid-cols-2">
           {/* <!-- image - start --> */}
           <div className="h-80 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-auto">
@@ -411,7 +410,6 @@ const Detailsproduct = () => {
             </nav>
           </div>
         </div>
-      </div>
     </div>
   );
 };
