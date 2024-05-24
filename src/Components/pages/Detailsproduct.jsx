@@ -192,8 +192,8 @@ const Detailsproduct = () => {
               </button>
             </span>
 
-            <p className="mb-4 text-center text-gray-500 sm:text-left md:mb-8 md:text-lg">
-              price: ৳ {price}
+            <p className="mb-4 text-center font-semibold text-orange-400 sm:text-left md:mb-8 md:text-lg">
+             {price} <span className="text-2xl"> ৳ </span>
             </p>
             <p className="mb-4 text-center text-gray-500 sm:text-left md:mb-8 md:text-lg">
               Category: {type}

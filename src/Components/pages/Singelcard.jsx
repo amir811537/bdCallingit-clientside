@@ -54,16 +54,14 @@ const Singelcard = ({ singlecard,setProducts,products }) => {
         <div className="font-bold text-xl mb-2">{name}</div>
         <p className="text-gray-700 text-base">{brandname}</p>
       </div>
-      <div className="px-6 pt-4 pb-2">
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          <button>
-            <span className="font-bold">Price : </span>
-            {price}
-          </button>
-        </span>
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+      <div className="px-6">
+   
+          <div className=" inline-block  text-sm font-semibold text-orange-400 mr-2 mb-2">
+           {price} <span className="font-semibold text-2xl"> ৳ </span>
+          </div>
+        <span className="  text-sm font-semibold text-gray-700 mr-2 mb-2">
           <button className="flex items-center justify-evenly">
-            <span className="font-bold">Rating: </span>
+            <span className="font-bold mr-2">Rating: </span>
             <div className="flex items-center space-x-1 rtl:space-x-reverse">
               {/*  use [...Array(5)] to create an array with 5 elements, as i want to display 5 stars. */}
               {[...Array(5)].map((_, index) => (

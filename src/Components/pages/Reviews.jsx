@@ -28,6 +28,9 @@ const Reviews = () => {
 
     return (
       <div>
+        <div>
+            <h2 className="text-left text-2xl lg:text-3xl font-semibold pl-6"> What customers say about <br /> GREEMIND?</h2>
+        </div>
         <br />
         <Swiper 
           watchSlidesProgress={true} 
@@ -73,9 +76,9 @@ const Reviews = () => {
                   </div>
 
                   <p className="my-4 mb-0 text-base font-normal leading-relaxed tracking-wide">
-                    <span className="text-xl font-bold">"</span>
+                    <span className="text-2xl font-bold">"</span>
                     {review.reviewData.review}
-                    <span className="text-xl font-bold">"</span>
+                    <span className="text-2xl font-bold">"</span>
                   </p>
                   <p>Review Date: {review.reviewData.reviewDate}</p>
                   <p>Review Time: {review.reviewData.reviewTime}</p>
@@ -89,6 +92,7 @@ const Reviews = () => {
                     <div>
                       <p className="leading-relaxed tracking-wide">{review.reviewData.userEmail}</p>
                       <p className="text-xs leading-relaxed tracking-wide">User ID: {review.reviewData.reviewID}</p>
+                      <p className="text-sm leading-relaxed tracking-wide">Youtuber</p>
                     </div>
                   </div>
 

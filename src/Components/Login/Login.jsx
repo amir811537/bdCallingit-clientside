@@ -1,30 +1,48 @@
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+/* eslint-disable react/no-unescaped-entities */
+import { Link,  useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import { useContext } from "react";
 import { AuthContext } from "../../Authprovider/Authprovider";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Login = () => {
 
-  const {signuprg,googleSignin}=useContext(AuthContext);
+  const {signuprg,googleSignin,user}=useContext(AuthContext);
   const location =useLocation();
   const navigate= useNavigate();
 
 
 
   const handelGoogle = () => {
-    googleSignin().then((result) => {
-      console.log(result);
-      Swal.fire({
-        icon: "success",
-        title: "Login success",
-        showConfirmButton: false,
-        timer: 3000,
-      });
-      navigate(location?.state ? location.state : "/");
+    googleSignin()
+    .then((result) => {
+      const userEmail = result?.user?.email;
+      const userName = result?.user?.displayName || "";
+const userImage =result?.user?.photoURL ||"";
+      const userData = {
+        email: userEmail,
+        name: userName,
+        userImage: userImage
+      };
 
+      axios
+        .post(`http://localhost:5000/profileInfo`, userData)
+        .then(() => {
+          Swal.fire({
+            icon: "success",
+            title: "Login success",
+            showConfirmButton: false,
+            timer: 3000,
+          });
+          navigate(location?.state ? location.state : "/");
+        })
+        .catch((error) => {
+          console.error("Error posting user data:", error);
+          // Handle error
+        });
     });
-};
+  };
 
 
 
@@ -33,53 +51,60 @@ const validatePassword = (password) => {
   const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/;
       return passwordRegex.test(password);
 };
-  const handelLogin = (e) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const email = form.get("email");
-    const password = form.get("password");
-    console.log(email, password);
-   
-    if (!validatePassword(password)) {
+const handelLogin = (e) => {
+  e.preventDefault();
+  const form = new FormData(e.currentTarget);
+  const email = form.get("email");
+  const password = form.get("password");
+  // console.log(email, password);
+
+  if (!validatePassword(password)) {
+    Swal.fire({
+      icon: "error",
+      title: "Password validation failed",
+      text: "Password must be at least 6 characters long and contain at least 1 capital letter & special character",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+    return;
+  }
+
+  signuprg(email, password)
+    .then((result) => {const userEmail = result?.user?.email;
+      const userName = result?user?.displayName:"update name plase";
+
+      const userData = {
+        email: userEmail,
+        name: userName,
+      };
+
+      axios
+        .post(`http://localhost:5000/profileInfo`, userData)
+        .then(() => {
+          Swal.fire({
+            icon: "success",
+            title: "Login success",
+            showConfirmButton: false,
+            timer: 3000,
+          });
+          navigate("/");
+        })
+        .catch((error) => {
+          console.error("Error posting user data:", error);
+          // Handle error
+        });
+    })
+    .catch((error) => {
+      console.error(error);
       Swal.fire({
         icon: "error",
-        title: "Password validation failed",
-        text: "Password must be at least 6 characters long and contain at least 1 capital letter & special character",
+        title: "Email or password does not match",
         showConfirmButton: false,
         timer: 3000,
       });
-      return;
-    }
-  
+    });
+};
 
-
-    
-
-    signuprg(email, password)
-      .then((result) => {
-        console.log(result);
-        Swal.fire({
-          icon: "success",
-          title: "Login success",
-          showConfirmButton: false,
-          timer: 3000,
-        });
-
-        // navigate after log in
-        navigate(location?.state ? location.state : "/");
-      })
-      .catch((error) => {
-        console.error(error);
-        Swal.fire({
-          icon: "error",
-          title: "Email or password does not match",
-          showConfirmButton: false,
-          timer: 3000,
-        });
-      });
-
-
-  };
 
   return (
     <div>
