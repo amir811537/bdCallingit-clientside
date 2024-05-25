@@ -201,7 +201,7 @@ const Detailsproduct = () => {
 
             <nav className="flex gap-4 sm:block sm:space-y-1 md:space-y-2">
               <div>
-                <Link to="/mycart">
+                <Link to="/dashboard/dashboardHome">
                   <div
                     onClick={() => handeladdtocart(singledata)}
                     className="inline-block text-sm text-indigo-500 transition duration-100
