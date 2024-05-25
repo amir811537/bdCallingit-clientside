@@ -23,7 +23,7 @@ const Profile = () => {
     };
     useEffect(() => {
         userInfo();
-    }, [user]);
+    }, []);
 
   console.log("thsi is user data ",userData)
 
