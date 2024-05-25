@@ -11,7 +11,7 @@ const {data : isAdmin,isPending:isAdminLoading }=useQuery({
 
     queryKey: [user?.email,'isAdmin'],
     queryFn: async()=>{
-        const res =await axios.get(`hhttps://electronics-bazar-server.vercel.app/profileInfo/admin/${user?.email}`);
+        const res =await axios.get(`https://electronics-bazar-server.vercel.app/profileInfo/admin/${user?.email}`);
         console.log("this is admin res",res.data)
         return res.data.admin;
     }

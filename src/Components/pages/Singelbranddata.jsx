@@ -9,7 +9,7 @@ const Singelbranddata = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
 
-  console.log("-------------------->", brand);
+  // console.log("-------------------->", brand);
 
   const getData = async () => {
     try {

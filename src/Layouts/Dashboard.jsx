@@ -15,6 +15,7 @@ const Dashboard = () => {
 
     const [isAdmin,isAdminLoading]=useAdmin();
 
+    console.log(isAdmin)
     const handelsingout = () => {
         logOut()
             .then((result) => {
@@ -26,7 +27,7 @@ const Dashboard = () => {
     };
 
 if(isAdminLoading){
-    return <p> loading ............</p>
+    return <span className="loading loading-ring loading-lg"></span>
 }
 
     return (

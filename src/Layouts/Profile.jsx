@@ -23,9 +23,9 @@ const Profile = () => {
     };
     useEffect(() => {
         userInfo();
-    }, []);
+    }, [user]);
 
-  console.log("thsi is user data ",userData)
+//   console.log("thsi is user data ",userData)
 
     const handleUpdateInfo = () => {
         // Pass user information as state during navigation

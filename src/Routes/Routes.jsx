@@ -17,6 +17,7 @@ import ManageItems from "../Layouts/ManageItems";
 import ManageUser from "../Layouts/ManageUser";
 import Profile from "../Layouts/Profile";
 import UpdateProfileInfo from "../Layouts/UpdateProfileInfo";
+import DashboardHome from "../Layouts/DashboardHome";
 // import Singelcard from "../Components/pages/Singelcard";
 
 const router=createBrowserRouter([
@@ -100,10 +101,10 @@ const router=createBrowserRouter([
                 loader:()=>fetch('hhttps://electronics-bazar-server.vercel.app/profileInfo')
             },
 
-            // {
-            //     path:'dashboardHome',
-            //     element:<DashboardHome></DashboardHome>,
-            // }
+            {
+                path:'dashboardHome',
+                element:<DashboardHome></DashboardHome>,
+            }
                     ]
     }
 ]);
