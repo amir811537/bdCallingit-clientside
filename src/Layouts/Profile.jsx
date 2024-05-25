@@ -13,7 +13,7 @@ const Profile = () => {
 
     const userInfo = async () => {
         try {
-            const res = await axios.get(`hhttps://electronics-bazar-server.vercel.app/profileInfo/${user?.email}`);
+            const res = await axios.get(`https://electronics-bazar-server.vercel.app/profileInfo/${user?.email}`);
             setUserData(res.data);
             setLoading(false);
         } catch (error) {
