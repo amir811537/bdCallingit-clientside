@@ -59,7 +59,7 @@ const onSubmit = async (data) => {
         // Assuming you have stored the user's ID in singleProfileInfo._id
       };
 
-      const patchRes = await axios.patch(`hhttps://electronics-bazar-server.vercel.app/profileInfo/${singleProfileInfo._id}`, profileUpdates);
+      const patchRes = await axios.patch(`https://electronics-bazar-server.vercel.app/profileInfo/${singleProfileInfo._id}`, profileUpdates);
       console.log("============>",patchRes)
 
       if (patchRes.data) {

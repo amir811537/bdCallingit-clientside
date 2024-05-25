@@ -21,7 +21,7 @@ const ManageItems = () => {
           confirmButtonText: "Yes, delete it!",
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`hhttps://electronics-bazar-server.vercel.app/products/${_id}`, {
+            fetch(`https://electronics-bazar-server.vercel.app/products/${_id}`, {
               method: "DELETE",
             })
               .then((res) => res.json())
@@ -46,7 +46,7 @@ const ManageItems = () => {
 
     const getData = async () => {
         try {
-          const response = await axios.get("hhttps://electronics-bazar-server.vercel.app/products");
+          const response = await axios.get("https://electronics-bazar-server.vercel.app/products");
           setCourses(response.data);
         } catch (error) {
           console.log("error in data fetching", error);

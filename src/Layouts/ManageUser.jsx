@@ -7,7 +7,7 @@ const ManageUser = () => {
   const { data: profileInfo = [], refetch } = useQuery({
     queryKey: ["profileInfo"],
     queryFn: async () => {
-      const res = await axios.get("hhttps://electronics-bazar-server.vercel.app/profileInfo");
+      const res = await axios.get("https://electronics-bazar-server.vercel.app/profileInfo");
       return res.data;
     },
   });
@@ -29,7 +29,7 @@ const ManageUser = () => {
         //     'success'
         //   )
 
-        fetch(`hhttps://electronics-bazar-server.vercel.app/profileInfo/${profile._id}`, {
+        fetch(`https://electronics-bazar-server.vercel.app/profileInfo/${profile._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -58,7 +58,7 @@ const ManageUser = () => {
   
     if (result.isConfirmed) {
       try {
-        const res = await axios.patch(`hhttps://electronics-bazar-server.vercel.app/profileInfo/admin/${profile._id}`);
+        const res = await axios.patch(`https://electronics-bazar-server.vercel.app/profileInfo/admin/${profile._id}`);
         console.log(res.data);
         if (res.data.modifiedCount > 0) {
             refetch(); 
