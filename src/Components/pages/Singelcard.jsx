@@ -1,49 +1,47 @@
 /* eslint-disable react/prop-types */
-import { useContext, useEffect } from "react";
+import {  useEffect } from "react";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
-import { AuthContext } from "../../Authprovider/Authprovider";
+// import { AuthContext } from "../../Authprovider/Authprovider";
 import { GrView } from 'react-icons/gr';
-import { AiOutlineEdit } from 'react-icons/ai';
-import { AiOutlineDelete } from 'react-icons/ai';
+
 import "aos/dist/aos.css";
 import AOS from "aos";
 
-const Singelcard = ({ singlecard,setProducts,products }) => {
-  const {user}=useContext(AuthContext);
+const Singelcard = ({ singlecard }) => {
+  // const {user}=useContext(AuthContext);
   // console.log(products)
   useEffect(() => {
     AOS.init();
   }, []);
 
-  const handeldelete = (_id) => {
-    // console.log(_id);
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`https://electronics-bazar-server.vercel.app/products/${_id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            setProducts(products.filter((card) => card._id !== _id))
+  // const handeldelete = (_id) => {
+  //   // console.log(_id);
+  //   Swal.fire({
+  //     title: "Are you sure?",
+  //     text: "You won't be able to revert this!",
+  //     icon: "warning",
+  //     showCancelButton: true,
+  //     confirmButtonColor: "#3085d6",
+  //     cancelButtonColor: "#d33",
+  //     confirmButtonText: "Yes, delete it!",
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       fetch(`https://electronics-bazar-server.vercel.app/products/${_id}`, {
+  //         method: "DELETE",
+  //       })
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           console.log(data);
+  //           setProducts(products.filter((card) => card._id !== _id))
 
-            Swal.fire("Deleted!", "Your product has been deleted.", "success");
-            // if (data.deletedCount > 0) {
+  //           Swal.fire("Deleted!", "Your product has been deleted.", "success");
+  //           // if (data.deletedCount > 0) {
           
-            // }
-          });
-      }
-    });
-  };
+  //           // }
+  //         });
+  //     }
+  //   });
+  // };
 
   const { _id, photourl, brandname, name, price, rating } = singlecard;
   return (
@@ -84,25 +82,21 @@ const Singelcard = ({ singlecard,setProducts,products }) => {
           </button>
         </span>
         <br />
-        <div className="py-3 pl-14 ">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
 
             <Link to={`/products/${_id}`}>
-            <button className="flex items-center"> <GrView></GrView>Details</button>
+            <button className="flex items-center btn  mb-4 justify-evenly gap-4"> <GrView></GrView>Details</button>
 
             </Link>
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+          {/* <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
             <Link to={`/updateproduct/${_id}`}>
               <button className="flex items-center"> <AiOutlineEdit></AiOutlineEdit>Edit</button>
             </Link>
-          </span>
-          {
+          </span> */}
+          {/* {
             user && <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
             <button  className="flex items-center" onClick={() => handeldelete(_id)}> <AiOutlineDelete></AiOutlineDelete>Delete</button>
           </span>
-          }
-        </div>
+          } */}
       </div>
     </div>
   );

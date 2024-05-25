@@ -12,6 +12,11 @@ import Singelbranddata from "../Components/pages/Singelbranddata";
 import PrivateRoute from "./PrivateRoute";
 import Detailsproduct from "../Components/pages/Detailsproduct";
 import ContactUs from "../Components/pages/ContactUs";
+import Dashboard from "../Layouts/Dashboard";
+import ManageItems from "../Layouts/ManageItems";
+import ManageUser from "../Layouts/ManageUser";
+import Profile from "../Layouts/Profile";
+import UpdateProfileInfo from "../Layouts/UpdateProfileInfo";
 // import Singelcard from "../Components/pages/Singelcard";
 
 const router=createBrowserRouter([
@@ -64,6 +69,42 @@ const router=createBrowserRouter([
             }
             
         ]
+    },
+    {
+        path:"dashboard",
+        element:<Dashboard></Dashboard>,
+        children:[
+            {
+                path:'myCart',
+                element:<MyCart></MyCart>
+            },
+            {
+                path: "AddProduct",
+                element: <AddProduct></AddProduct>
+            },
+            {
+                path:"ManageItem",
+                element:<ManageItems></ManageItems>
+            },
+            {
+                path:"ManageUser",
+                element:<ManageUser></ManageUser>
+            },
+            {
+                path:'profile',
+                element:<Profile></Profile>
+            },
+            {
+                path:'updateprofileInfo/:id',
+                element:<UpdateProfileInfo></UpdateProfileInfo>,
+                loader:()=>fetch('hhttps://electronics-bazar-server.vercel.app/profileInfo')
+            },
+
+            // {
+            //     path:'dashboardHome',
+            //     element:<DashboardHome></DashboardHome>,
+            // }
+                    ]
     }
 ]);
 export default router;

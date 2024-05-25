@@ -1,14 +1,4 @@
-// import { useContext } from "react";
-// import { Link, NavLink } from "react-router-dom";
-// import { AuthContext } from "../../Authprovider/Authprovider";
-// import { AiFillHome } from "react-icons/ai";
-// import { SlLogin } from "react-icons/sl";
-// import { MdAddBusiness } from "react-icons/md";
-// import { HiShoppingBag } from "react-icons/hi";
-// import { CiSearch } from "react-icons/ci";
-// import { FaRegUser } from "react-icons/fa";
-// import { MdOutlineShoppingCart } from "react-icons/md";
-// import CartcountBadge from "./CartcountBadge";
+
 /* eslint-disable react/no-unescaped-entities */
 import { Link, NavLink } from "react-router-dom";
 import { RiMenu3Line } from "react-icons/ri";
@@ -16,7 +6,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../Authprovider/Authprovider";
 import { FaCircleUser } from "react-icons/fa6";
 import useCart from "../../Hooks/useCart";
-// import MyCart from "../mycart/MyCart";
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
 const [userCart]=useCart()
@@ -36,11 +25,7 @@ const [userCart]=useCart()
           Home
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink className=" text-xl text-[#00FFA7]" to="/AddProduct">
-          Add product
-        </NavLink>
-      </li> */}
+  
       <li>
         <NavLink className=" text-xl  hover:text-[#00FFA7]" to="/alldata">
           Products
@@ -71,7 +56,7 @@ const [userCart]=useCart()
 
   <div className="flex-none">
     <div className="dropdown">
-<Link to='/myCart'>
+<Link to='/dashboard/profile'>
 
 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
         <div className="indicator">
@@ -120,7 +105,7 @@ const [userCart]=useCart()
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
         <div className="indicator">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-<Link to='/myCart'>
+<Link to='/dashboard/profile'>
 <span className="badge badge-sm indicator-item">{userCart?.length}</span>
 
 </Link>
@@ -132,7 +117,7 @@ const [userCart]=useCart()
           <div className="card-actions">
 
 
-<button className="btn btn-primary btn-block"><Link to='/myCart'>View cart</Link></button>
+<button className="btn btn-primary btn-block"><Link to='/dashboard/profile'>View cart</Link></button>
         </div>
         </div>
       </div>
@@ -144,7 +129,7 @@ const [userCart]=useCart()
                 className="btn border btn-outline"
                 onClick={handelsingout}
               >
- <FaCircleUser className="text-xl" /> Sign Out              </button>
+ <FaCircleUser className="text-xl" /> Sign Out  </button>
           
           ) : (
             
