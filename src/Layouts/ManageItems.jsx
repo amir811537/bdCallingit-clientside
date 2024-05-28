@@ -59,8 +59,8 @@ const ManageItems = () => {
     return (
         <div>
         <div className="flex justify-evenly my-7">
-          <h2 className="text-3xl">All Product</h2>
-          <h2 className="text-3xl">Total Product : {courses.length}</h2>
+          <h2 className="lg:text-3xl font-semibold text-xl">All Product</h2>
+          <h2 className="lg:text-3xl text-xl font-semibold">Total Product : {courses.length}</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="table table-zebra">
@@ -80,7 +80,7 @@ const ManageItems = () => {
                   <td>{course.name}</td>
 
                   <td>
-                  <Link to={`/updateproduct/${course._id}`}>
+                  <Link to={`/dashboard/updateproduct/${course._id}`}>
               <button className="flex items-center"> <AiOutlineEdit></AiOutlineEdit>Edit</button>
             </Link>
                   </td>

@@ -50,11 +50,7 @@ const router=createBrowserRouter([
                 path:'/alldata',
                 element:<Alldata></Alldata>,
             },
-            {
-                path:'/updateproduct/:id',
-                element:<PrivateRoute><Updateproduct></Updateproduct></PrivateRoute>,
-                loader:({params})=>fetch(`https://electronics-bazar-server.vercel.app/productsbyid/${params.id}`)
-            },
+          
             {
                 path:'/singelbranddata/:brand',
                 element:<Singelbranddata></Singelbranddata>
@@ -92,13 +88,18 @@ const router=createBrowserRouter([
                 element:<ManageUser></ManageUser>
             },
             {
+                path:'updateproduct/:id',
+                element:<PrivateRoute><Updateproduct></Updateproduct></PrivateRoute>,
+                loader:({params})=>fetch(`https://electronics-bazar-server.vercel.app/productsbyid/${params.id}`)
+            },
+            {
                 path:'profile',
                 element:<Profile></Profile>
             },
             {
                 path:'updateprofileInfo/:id',
                 element:<UpdateProfileInfo></UpdateProfileInfo>,
-                loader:()=>fetch('hhttps://electronics-bazar-server.vercel.app/profileInfo')
+                loader:()=>fetch('https://electronics-bazar-server.vercel.app/profileInfo')
             },
 
             {

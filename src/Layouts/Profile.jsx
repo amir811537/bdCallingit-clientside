@@ -40,7 +40,7 @@ const Profile = () => {
                 <div className="">
                     <div className="bg-white  rounded-lg py-3">
                         <div className=" p-2">
-                            <img className="w-32 h-32 rounded-full mx-auto" src={user.photoURL?user.photoURL:userData[0].userimg} alt="John Doe"/>
+                            <img className="w-32 h-32 rounded-full mx-auto" src={user.photoURL?user.photoURL:userData[0].userImage} alt="John Doe"/>
                         </div>
                         <div className="p-2 text-center">
                             <h3 className="text-center text-xl text-gray-900 font-medium leading-8">{`${userData[0]?.name||''}`}</h3>

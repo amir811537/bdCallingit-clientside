@@ -81,8 +81,8 @@ const ManageUser = () => {
   return (
     <div>
       <div className="flex justify-evenly my-7">
-        <h2 className="text-3xl">All users</h2>
-        <h2 className="text-3xl">Total Users : {profileInfo.length}</h2>
+        <h2 className="lg:text-3xl font-semibold text-xl">All users</h2>
+        <h2 className="lg:text-3xl font-semibold text-xl">Total Users : {profileInfo.length}</h2>
       </div>
       <div className="overflow-x-auto">
         <table className="table table-zebra">

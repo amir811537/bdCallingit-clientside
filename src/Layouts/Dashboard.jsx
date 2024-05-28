@@ -7,7 +7,7 @@ import { FaUserEdit } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../Authprovider/Authprovider";
 import useAdmin from "../Hooks/useAdmin";
-
+import { ImCross } from "react-icons/im";
 const Dashboard = () => {
     const { user, logOut } = useContext(AuthContext);
     const [isAdmin, isAdminLoading] = useAdmin();
@@ -26,7 +26,7 @@ const Dashboard = () => {
     };
 
     if (isAdminLoading) {
-        return <span className="loading loading-ring loading-lg"></span>;
+        return <span className="loading loading-ring  loading-lg"></span>;
     }
 
     return (
@@ -38,9 +38,10 @@ const Dashboard = () => {
                 </button>
                 <div>
                     {user ? (
+                     <Link to="/">
                         <button className="text-white" onClick={handleSignOut}>
                             Sign Out
-                        </button>
+                        </button></Link>
                     ) : (
                         <Link to="/login">
                             <button className="text-white">Login</button>
@@ -103,6 +104,20 @@ const Dashboard = () => {
                 <div className="flex py-10 items-center gap-2 text-center justify-center">
                     <NavLink className="text-white" to="/">Return Home</NavLink>
                     <FaHome className="text-2xl text-sky-300" />
+                </div>
+
+
+                <div>
+                    {user ? (
+                     <Link to="/">
+                        <button className="text-white bg-red-600 py-3 px-4 rounded-md text-center mx-auto flex" onClick={handleSignOut}>
+                          <div className='flex items-center gap-2'> Sign Out <ImCross/></div>
+                        </button></Link>
+                    ) : (
+                        <Link to="/login">
+                            <button className="text-white">Login</button>
+                        </Link>
+                    )}
                 </div>
             </div>
 

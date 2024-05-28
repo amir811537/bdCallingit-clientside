@@ -1,11 +1,12 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Updateproduct = () => {
   const product = useLoaderData();
   const { _id, photourl, brandname, name, price, rating, type } = product;
-  console.log("==========>>>>>",product);
+  // console.log("==========>>>>>",product);
 
+  const navigate = useNavigate();
 
   const handelupdateproduct = (e) => {
     e.preventDefault();
@@ -31,8 +32,8 @@ fetch(`https://electronics-bazar-server.vercel.app/products/${_id}`,{
 
 })
 .then((res)=>res.json())
-.then((data)=>{
-  console.log(data)
+.then(()=>{
+  // console.log(data)
 
     Swal.fire({
         title:'Success!',
@@ -40,7 +41,7 @@ fetch(`https://electronics-bazar-server.vercel.app/products/${_id}`,{
         icon: 'success',
         confirmButtonText: 'Cool'
     })
-  
+  navigate("/dashboard/ManageItem")
   
 })
 
@@ -49,12 +50,11 @@ fetch(`https://electronics-bazar-server.vercel.app/products/${_id}`,{
 
 
   return (
-    <div className="bg-cover bg-center min-h-screen flex justify-center items-center bg-image">
         
-      <div className="flex justify-center items-center h-[100vh] ">
 
-        <form onSubmit={handelupdateproduct}>
-        <h1 className="py-9">Update your product {name}</h1>
+      <div className="p-6 lg:p-10">
+          <form onSubmit={handelupdateproduct}>
+        <h1 className="py-9"><span className="text-red-400 text-xl font-bold">Update your product :</span> <br /> {name}</h1>
 
           <div className="grid md:grid-cols-2 md:gap-6">
             <div className="relative z-0 w-full mb-6 group">
@@ -189,7 +189,7 @@ fetch(`https://electronics-bazar-server.vercel.app/products/${_id}`,{
           </div>
         </form>
       </div>
-    </div>
+   
   );
 };
 
