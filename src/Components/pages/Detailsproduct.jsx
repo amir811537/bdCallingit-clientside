@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Authprovider/Authprovider";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
@@ -15,14 +15,11 @@ const Detailsproduct = () => {
 
   const axiousPublic = useAxiosPublic();
   // console.log(dataapi)
-  const { id } = useParams();
   const { user } = useContext(AuthContext);
   const [filteredReviews, setFilteredReviews] = useState([]);
   const [allReviews, reReviewFetch] = useAllReviews();
 
-  const singledata = dataapi.find((singledata) => singledata._id === id);
-  // console.log(singledata);
-  const { _id, photourl, name, brandname, type, price, rating } = singledata;
+  const { _id, photourl, name, brandname, type, price, rating } = dataapi;
 
   // const [cart,setCarts]=useState([])
 
@@ -203,7 +200,7 @@ const Detailsproduct = () => {
               <div>
                 <Link to="/dashboard/dashboardHome">
                   <div
-                    onClick={() => handeladdtocart(singledata)}
+                    onClick={() => handeladdtocart(dataapi)}
                     className="inline-block text-sm text-indigo-500 transition duration-100
                    hover:text-indigo-600 active:text-indigo-700 md:text-base"
                   >

@@ -62,7 +62,7 @@ const router=createBrowserRouter([
             {
                 path:'/products/:id',
                 element:<PrivateRoute><Detailsproduct></Detailsproduct></PrivateRoute>,
-                loader:()=>fetch('https://electronics-bazar-server.vercel.app/products')
+                loader:({params})=>fetch(`https://electronics-bazar-server.vercel.app/productsbyid/${params.id}`)
             },
             {
                 path:'/contacts',
