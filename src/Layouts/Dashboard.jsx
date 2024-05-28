@@ -39,7 +39,7 @@ const Dashboard = () => {
                 <div>
                     {user ? (
                      <Link to="/">
-                        <button className="text-white" onClick={handleSignOut}>
+                        <button className="text-white bg-red-600 py-3 px-3 rounded-md text-center" onClick={handleSignOut}>
                             Sign Out
                         </button></Link>
                     ) : (
