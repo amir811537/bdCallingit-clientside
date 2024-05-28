@@ -1,9 +1,9 @@
-# Electronics-Bazar Website
+# E-commerce Website
 
 ## Overview 🚀
-1. **Front-end Live Site Link:** [https://electronics-bazaar-auth.web.app/]
-2. **Client Side GitHub Repository Link:** [https://github.com/amir811537/-Electronics-Bazar]
-3. **Server-Side GitHub Repository Link:** [[Your server-side repository link](https://github.com/amir811537/Electronics-Bazar-server.git)]
+1. **Front-end Live Site Link:** [https://66519120faf7510d3b1b402c--prismatic-mousse-d0882c.netlify.app/]
+2. **Client Side GitHub Repository Link:** [https://github.com/amir811537/bdCallingit-clientside]
+3. **Server-Side GitHub Repository Link:** [https://github.com/amir811537/bdcallingit-serverside]
 
 Welcome to Electronics-Bazar, the ultimate destination for all your electronic needs. This MERN Stack web application focuses on providing a seamless experience for users to explore and purchase electronic products from renowned brands.
 
